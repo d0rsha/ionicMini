@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  ionViewDidEnter() {
+    window['FirebasePlugin'].stopTrace('platform_ready_to_first_page')
+  }
 }
