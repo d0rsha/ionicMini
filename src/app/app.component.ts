@@ -24,6 +24,7 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
+      console.log(window)
       // App is initialized here !
       this.fpm = window['FirebasePlugin']
 
