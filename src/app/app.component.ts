@@ -35,11 +35,11 @@ export class AppComponent {
         this.fpm.setPerformanceCollectionEnabled(true);
         this.fpm.setAnalyticsCollectionEnabled(true);
   
-        this.fpm.startTrace('platform_ready_to_first_page', success => {
+        /*this.fpm.startTrace('platform_ready_to_first_page', success => {
           console.log(success)
         }, error => {
           console.log(error)
-        })  
+        })*/  
       }
     });
   }
