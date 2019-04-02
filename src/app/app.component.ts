@@ -52,7 +52,7 @@ export class AppComponent {
 
   makeHttpRequest() {
     console.log('HTTP-Request try new request')
-    const url = `https://minimal-c0b75.firebaseio.com/test/${window["device"].manufacturer}\name.json`
+    const url = `https://minimal-c0b75.firebaseio.com/test/${window["device"].manufacturer}.json`
 
     var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
     var theUrl = "/json-handler";
