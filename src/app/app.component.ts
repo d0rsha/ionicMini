@@ -9,14 +9,12 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  fpm: any;
-  start
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar
   ) {
-    this.start = performance.now();
     this.initializeApp();
   }
 
@@ -27,21 +25,14 @@ export class AppComponent {
 
       console.log(window)
       this.printInfo()
-      // Add report fully drawn + printouts 
+      
       window['ReportFullyDrawn'].reportFullyDrawn();
-
-      // App is initialized here !
-      this.fpm = window['FirebasePlugin']
-
-      this.fpm.setPerformanceCollectionEnabled(true);
-      this.fpm.setAnalyticsCollectionEnabled(true);
+      window['ReportFullyDrawn'].printInfo();
     });
   }
 
   printInfo() {
     //Add from current format=device: Device {cordova:7.0.0,manufacturer:Google,model:Android SDK built for x86,platform:Android,serial:EMULATOR28X0X23X0,version:8.1.0
-    console.log('ionic platform ready:', performance.now() - this.start)
-    console.log(`device: Device {approach:hybrid,cordova:${window['device'].cordova}7.0.0,manufacturer:${window['device'].manufacturer},model:${window['device'].model},platform:${window['device'].platform},serial:${window['device'].serial},version:${window['device'].version},isVirtual:${window['device'].isVirtual},uuid:${window['device'].uuid}`)
     console.log(`device: MemoryUsage {jsHeapSizeLimit:${window.performance['memory'].jsHeapSizeLimit},totalJSHeapSize:${window.performance['memory'].totalJSHeapSize},usedJSHeapSize:${window.performance['memory'].usedJSHeapSize}`)
     console.log(`device: BrowserTiming {timeOrigin:${window.performance.timeOrigin},\
                 connectEnd:${window.performance['timing'].connectEnd},\
